@@ -2,7 +2,7 @@ var recipes = require('../recipes.json');
 var router = require('express').Router();
 
 
-// Get method for returning incredients based on ids
+// Get method for returning ingredients based on ids
 router.get('/shopping-list', function (req, res, next) {
     try {
       let ids = req.query.ids;
