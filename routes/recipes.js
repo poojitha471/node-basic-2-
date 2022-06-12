@@ -5,14 +5,13 @@ var router = require('express').Router();
 // Get method for returning incredients based on ids
 router.get('/shopping-list', function (req, res, next) {
     try {
-  
+      let ids = req.query.ids;
       let resultArray = [];
   
-      if (!req.query.ids) {
+      if (!ids) {
         res.status(400).send({ "Status Code": 400, Body: "ids are required" });
       }
       else {
-        let ids = req.query.ids;
         let inputArray = ids.split(',');
         for (let i = 0; i < inputArray.length; i++) {
           let obj = recipes.filter(x => x.id === Number(inputArray[i]))[0];
